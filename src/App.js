@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ChevronRight, BarChart3, Cpu, Cloud, CheckCircle, ArrowRight, Activity, Settings, Eye, HelpCircle, Package, Truck, Users, Shield, Zap, AlertTriangle, DollarSign, Trash2, FileText, Warehouse, GitBranch } from 'lucide-react';
+import { Menu, X, ChevronRight, BarChart3, Cpu, Cloud, Database, CheckCircle, ArrowRight, Activity, Settings, Eye, HelpCircle, Package, Truck, Users, Shield, Zap, AlertTriangle, DollarSign, Trash2, FileText, Warehouse, GitBranch } from 'lucide-react';
 import logo from "./assets/logo1.png";
 
 const DataloftWebsite = () => {
@@ -138,14 +138,13 @@ const DataloftWebsite = () => {
   return (
     <div className="min-h-screen bg-slate-950 text-white">
       {/* Navigation */}
-      {/* Navigation */}
 <nav className={`fixed w-full z-50 transition-all duration-300 ${
   isScrolled
     ? "bg-slate-950/95 backdrop-blur-md shadow-lg"
     : "bg-transparent"
 }`}>
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="flex justify-between items-center h-20">
+    <div className="flex justify-between items-center h-24">
 
       {/* Logo */}
       <div
@@ -155,7 +154,8 @@ const DataloftWebsite = () => {
         <img
           src={logo}
           alt="Dataloft Logo"
-          className="h-12 w-auto"
+          className="h-20 w-auto transition-transform duration-300 hover:scale-105"
+
         />
       </div>
 
@@ -262,23 +262,22 @@ const DataloftWebsite = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">
             Our Expertise: Latest Use Cases in Manufacturing
           </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {[
-              { title: 'Plant Benchmarking', color: 'from-blue-600 to-cyan-500' },
-              { title: 'Increasing OEE', color: 'from-purple-600 to-pink-500' },
-              { title: 'Real-time Visibility', color: 'from-green-600 to-emerald-500' },
-              { title: 'Workforce Productivity', color: 'from-orange-600 to-red-500' },
-              { title: 'Digital Thread', color: 'from-indigo-600 to-blue-500' }
-            ].map((item, idx) => (
-              <div 
-                key={idx}
-                className="group relative bg-slate-800/50 backdrop-blur-sm p-8 rounded-2xl border border-slate-700 hover:border-cyan-500 transition-all duration-300 hover:transform hover:-translate-y-2 overflow-hidden"
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 max-w-5xl mx-auto">
+             {[
+              { title: 'Plant Benchmarking', span: 'lg:col-span-2' },
+              { title: 'Increasing OEE', span: 'lg:col-span-2' },
+              { title: 'Real-time Visibility', span: 'lg:col-span-2' },
+              { title: 'Workforce Productivity', span: 'lg:col-span-3' },
+              { title: 'Digital Thread', span: 'lg:col-span-3' },
+                ].map((item, idx) => (
+              <div
+              key={idx}
+              className={`group bg-slate-800/50 backdrop-blur-sm p-8 rounded-2xl border border-slate-700 hover:border-cyan-500 transition-all duration-300 hover:-translate-y-2 text-center ${item.span}`}
               >
-                <div className={`absolute inset-0 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
-                <h3 className="text-xl font-bold text-center relative z-10">{item.title}</h3>
-              </div>
-            ))}
-          </div>
+                <h3 className="text-xl font-bold">{item.title}</h3>
+                </div>
+                ))}
+            </div>
         </div>
       </section>
 
