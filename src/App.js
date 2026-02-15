@@ -25,11 +25,44 @@ const DataloftWebsite = () => {
     }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert('Thank you for your message! We will get back to you shortly.');
-    setFormData({ email: '', subject: '', message: '' });
-  };
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+
+  if (!formData.email || !formData.subject || !formData.message) {
+    alert("Please fill all fields.");
+    return;
+  }
+
+  try {
+    const response = await fetch(
+      "https://formsubmit.co/ajax/vatsalrana14@gmail.com",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          _subject: `New Demo Request: ${formData.subject}`,
+          _template: "table",
+        }),
+      }
+    );
+
+    if (response.ok) {
+      alert("✅ Message sent successfully!");
+      setFormData({ email: "", subject: "", message: "" });
+    } else {
+      alert("❌ Failed to send message.");
+    }
+  } catch (error) {
+    console.error(error);
+    alert("❌ Network error.");
+  }
+};
 
   const services = [
     {
