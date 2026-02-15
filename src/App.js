@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ChevronRight, BarChart3, Cpu, Cloud, Database, CheckCircle, ArrowRight, Activity, Settings, Eye, HelpCircle, Package, Truck, Users, Shield, Zap, AlertTriangle, DollarSign, Trash2, FileText, Warehouse, GitBranch } from 'lucide-react';
+import { Menu, X, ChevronRight, BarChart3, Cpu, Cloud, CheckCircle, ArrowRight, Activity, Settings, Eye, HelpCircle, Package, Truck, Users, Shield, Zap, AlertTriangle, DollarSign, Trash2, FileText, Warehouse, GitBranch } from 'lucide-react';
+import logo from "./assets/logo1.png";
 
 const DataloftWebsite = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -141,11 +142,12 @@ const DataloftWebsite = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center space-x-2 cursor-pointer" onClick={() => scrollToSection('home')}>
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-400 rounded-lg flex items-center justify-center transform hover:scale-110 transition-transform duration-300">
-                <Database className="w-6 h-6 text-white" />
-              </div>
-              <span className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-300 bg-clip-text text-transparent">DATALOFT</span>
-            </div>
+              <div className="flex items-center cursor-pointer" onClick={() => scrollToSection('home')}>
+                    <img 
+                        src={logo1} 
+                        alt="Dataloft Logo" 
+                        className="h-12 w-auto"
+                        />  </div>
 
             <div className="hidden md:flex space-x-8">
               {['home', 'about', 'services', 'features', 'how-it-works', 'demo'].map((item) => (
