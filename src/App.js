@@ -138,54 +138,75 @@ const DataloftWebsite = () => {
   return (
     <div className="min-h-screen bg-slate-950 text-white">
       {/* Navigation */}
-      <nav className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-slate-950/95 backdrop-blur-md shadow-lg' : 'bg-transparent'}`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
-            <div className="flex items-center space-x-2 cursor-pointer" onClick={() => scrollToSection('home')}>
-              <div className="flex items-center cursor-pointer" onClick={() => scrollToSection('home')}>
-                    <img 
-                        src={logo1} 
-                        alt="Dataloft Logo" 
-                        className="h-12 w-auto"
-                        />  </div>
+      {/* Navigation */}
+<nav className={`fixed w-full z-50 transition-all duration-300 ${
+  isScrolled
+    ? "bg-slate-950/95 backdrop-blur-md shadow-lg"
+    : "bg-transparent"
+}`}>
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="flex justify-between items-center h-20">
 
-            <div className="hidden md:flex space-x-8">
-              {['home', 'about', 'services', 'features', 'how-it-works', 'demo'].map((item) => (
-                <button
-                  key={item}
-                  onClick={() => scrollToSection(item)}
-                  className={`capitalize transition-colors duration-300 hover:text-cyan-400 ${activeSection === item ? 'text-cyan-400' : 'text-white'}`}
-                >
-                  {item.replace('-', ' ')}
-                </button>
-              ))}
-            </div>
+      {/* Logo */}
+      <div
+        className="flex items-center cursor-pointer"
+        onClick={() => scrollToSection("home")}
+      >
+        <img
+          src={logo}
+          alt="Dataloft Logo"
+          className="h-12 w-auto"
+        />
+      </div>
 
-            <button 
-              className="md:hidden text-white"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+      {/* Desktop Menu */}
+      <div className="hidden md:flex space-x-8">
+        {["home", "about", "services", "features", "how-it-works", "demo"].map(
+          (item) => (
+            <button
+              key={item}
+              onClick={() => scrollToSection(item)}
+              className={`capitalize transition-colors duration-300 hover:text-cyan-400 ${
+                activeSection === item
+                  ? "text-cyan-400"
+                  : "text-white"
+              }`}
             >
-              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              {item.replace("-", " ")}
             </button>
-          </div>
-        </div>
-
-        {mobileMenuOpen && (
-          <div className="md:hidden bg-slate-900/98 backdrop-blur-md animate-in slide-in-from-top duration-300">
-            <div className="px-4 pt-2 pb-6 space-y-3">
-              {['home', 'about', 'services', 'features', 'how-it-works', 'demo'].map((item) => (
-                <button
-                  key={item}
-                  onClick={() => scrollToSection(item)}
-                  className="block w-full text-left px-4 py-3 capitalize hover:bg-slate-800 rounded-lg transition-colors duration-200"
-                >
-                  {item.replace('-', ' ')}
-                </button>
-              ))}
-            </div>
-          </div>
+          )
         )}
-      </nav>
+      </div>
+
+      {/* Mobile Menu Button */}
+      <button
+        className="md:hidden text-white"
+        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+      >
+        {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+      </button>
+    </div>
+  </div>
+
+  {/* Mobile Menu Dropdown */}
+  {mobileMenuOpen && (
+    <div className="md:hidden bg-slate-900/98 backdrop-blur-md animate-in slide-in-from-top duration-300">
+      <div className="px-4 pt-2 pb-6 space-y-3">
+        {["home", "about", "services", "features", "how-it-works", "demo"].map(
+          (item) => (
+            <button
+              key={item}
+              onClick={() => scrollToSection(item)}
+              className="block w-full text-left px-4 py-3 capitalize hover:bg-slate-800 rounded-lg transition-colors duration-200"
+            >
+              {item.replace("-", " ")}
+            </button>
+          )
+        )}
+      </div>
+    </div>
+  )}
+</nav>
 
       {/* Hero Section */}
       <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
