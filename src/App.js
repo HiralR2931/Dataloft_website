@@ -431,7 +431,7 @@ const DataloftWebsite = () => {
           </div>
           <div className="space-y-2 mb-6">
             <p className="text-slate-400">dataloft.info@gmail.com</p>
-            <p className="text-slate-400">+91 7066822892</p>
+            <p className="text-slate-400">Vatsal M. Rana | +91 7066822892</p>
             <p className="text-slate-400">PUNE</p>
           </div>
           <p className="text-slate-500 text-sm">©2024 by DATALOFT. All rights reserved.</p>
